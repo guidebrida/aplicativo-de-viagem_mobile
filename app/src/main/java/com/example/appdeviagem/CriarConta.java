@@ -41,11 +41,6 @@ public class CriarConta extends AppCompatActivity {
 
                     ArrayList<CharSequence> dados = new ArrayList<CharSequence>();
 
-//                    dados.add(editSobrenome.getText().toString());
-//                    dados.add(editSobrenome.getText().toString());
-//                    dados.add(editSobrenome.getText().toString());
-//                    dados.add(editSobrenome.getText().toString());
-
 
                     Intent it = new Intent(CriarConta.this, MainActivity.class);
                     it.putCharSequenceArrayListExtra("DADOS", dados);
