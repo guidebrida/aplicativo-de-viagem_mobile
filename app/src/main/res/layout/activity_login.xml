@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <ImageView
@@ -19,10 +19,10 @@
             android:id="@+id/editTextTextMultiLine2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
             android:layout_marginTop="30dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="40dp"
             android:ems="10"
             android:inputType="textMultiLine"
             android:text="Digite seu e-mail e senha!"
@@ -32,8 +32,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
             <EditText
                 android:id="@+id/editTextTextEmailAddress"
@@ -41,8 +40,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
-                android:ems="10"
                 android:background="@color/white"
+                android:ems="10"
                 android:hint="E-mail ou usuário"
                 android:inputType="textEmailAddress" />
 
@@ -55,20 +54,21 @@
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true">
 
-        <EditText
-            android:id="@+id/editTextTextPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:ems="10"
-            android:background="@color/white"
-            app:passwordToggleEnabled="true"
-            android:hint="Senha de Acesso"
-            android:inputType="textPassword" />
+            <EditText
+                android:id="@+id/editTextTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="Senha de Acesso"
+                android:inputType="textPassword"
+                app:passwordToggleEnabled="true" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <Button
             android:id="@+id/botao_login"
             android:layout_width="match_parent"
@@ -76,17 +76,17 @@
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/azul_gremio"
             android:text="Login"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/azul_gremio"/>
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Criar conta"
-            android:textColor="#0017F8"
             android:textAlignment="center"
+            android:textColor="#0017F8"
             android:textSize="10pt" />
     </LinearLayout>
 
