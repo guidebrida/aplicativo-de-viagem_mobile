@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <ImageView
@@ -28,15 +29,31 @@
             android:textAlignment="center"
             android:textSize="22sp" />
 
-        <EditText
-            android:id="@+id/editTextTextEmailAddress"
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:ems="10"
-            android:hint="E-mail ou usuário"
-            android:inputType="textEmailAddress" />
+            >
+
+            <EditText
+                android:id="@+id/editTextTextEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:ems="10"
+                android:background="@color/white"
+                android:hint="E-mail ou usuário"
+                android:inputType="textEmailAddress" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true">
 
         <EditText
             android:id="@+id/editTextTextPassword"
@@ -45,9 +62,13 @@
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:ems="10"
+            android:background="@color/white"
+            app:passwordToggleEnabled="true"
             android:hint="Senha de Acesso"
             android:inputType="textPassword" />
 
+
+        </com.google.android.material.textfield.TextInputLayout>
         <Button
             android:id="@+id/botao_login"
             android:layout_width="match_parent"
@@ -55,7 +76,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:layout_marginBottom="20dp"
-            android:text="Continuar"
+            android:text="Login"
             android:textColor="@color/white"
             android:backgroundTint="@color/azul_gremio"/>
 
