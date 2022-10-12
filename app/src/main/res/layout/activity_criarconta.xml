@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            android:text="E-mail"
+            android:text="Usuário"
             android:textColor="@color/black" />
     </LinearLayout>
 
@@ -79,7 +79,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editEmail"
+            android:id="@+id/editUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
@@ -87,7 +87,7 @@
             android:layout_marginBottom="45dp"
             android:background="@color/white"
             android:ems="10"
-            android:hint="nome@exemplo.com"
+            android:hint="Joazinho123, Maria321..."
             android:inputType="textEmailAddress"
             android:textColor="@color/black" />
 
@@ -132,7 +132,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
 
         <Button
@@ -145,6 +145,19 @@
             android:backgroundTint="@color/azul_gremio"
             android:text="cadastrar"
             android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/editTextVoltar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:text="Voltar!"
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
 
     </LinearLayout>

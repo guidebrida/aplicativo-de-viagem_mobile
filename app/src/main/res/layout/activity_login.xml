@@ -24,8 +24,7 @@
             android:layout_marginRight="50dp"
             android:layout_marginBottom="40dp"
             android:ems="10"
-            android:inputType="textMultiLine"
-            android:text="Digite seu e-mail e senha!"
+            android:text="Digite seu usuário e senha!"
             android:textAlignment="center"
             android:textSize="22sp" />
 
@@ -35,15 +34,15 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/editTextTextEmailAddress"
+                android:id="@+id/editTextTextUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
                 android:background="@color/white"
                 android:ems="10"
-                android:hint="E-mail ou usuário"
-                android:inputType="textEmailAddress" />
+                android:hint="Usuário de acesso"
+                android:inputType="text" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -81,7 +80,7 @@
             android:textColor="@color/white" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/criarConta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Criar conta"

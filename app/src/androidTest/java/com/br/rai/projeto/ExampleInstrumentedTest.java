@@ -1,4 +1,4 @@
-package com.example.appdeviagem;
+package com.br.rai.projeto;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.appdeviagem", appContext.getPackageName());
+        assertEquals("com.br.rai.projeto", appContext.getPackageName());
     }
 }

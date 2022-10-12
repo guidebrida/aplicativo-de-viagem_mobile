@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        <TextView
+            android:id="@+id/nomeViagem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/azul_gremio"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textAlignment="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="Pomerode"/>
+        <TextView
+            android:textColor="@color/azul_gremio"
+            android:id="@+id/totalPessoas"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pessoas: "/>
+        <TextView
+            android:textColor="@color/azul_gremio"
+            android:id="@+id/custoViagem"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Custo da viagem: "/>
+        <TextView
+            android:textColor="@color/azul_gremio"
+            android:id="@+id/custoPessoa"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Custo por pessoa: "/>
+    </LinearLayout>
+
+</LinearLayout>

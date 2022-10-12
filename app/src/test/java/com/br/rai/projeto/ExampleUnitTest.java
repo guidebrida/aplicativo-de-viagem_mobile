@@ -1,4 +1,4 @@
-package com.example.appdeviagem;
+package com.br.rai.projeto;
 
 import org.junit.Test;
 
