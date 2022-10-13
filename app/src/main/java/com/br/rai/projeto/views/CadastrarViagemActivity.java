@@ -10,9 +10,12 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -118,16 +121,24 @@ public class CadastrarViagemActivity extends AppCompatActivity {
         custoMedioLitro = findViewById(R.id.custoMedioLitro);
         custoMedioLitro.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
         totalVeiculos = findViewById(R.id.totalVeiculos);
+        totalVeiculos.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
         totalGasolina = findViewById(R.id.totalGasolina);
         custoEstimadoPessoa = findViewById(R.id.custoEstimadoPessoa);
+        custoEstimadoPessoa.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
         aluguelVeiculo = findViewById(R.id.aluguelVeiculo);
+        aluguelVeiculo.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
         totalTarifaAerea = findViewById(R.id.totalTarifaAerea);
         custoEstimadoRefeicao = findViewById(R.id.custoEstimadoRefeicao);
+        custoEstimadoRefeicao.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
         refeicoesDia = findViewById(R.id.refeicoesDia);
+        refeicoesDia.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
         totalRefeicoes = findViewById(R.id.totalRefeicoes);
         custoEstimadoNoite = findViewById(R.id.custoEstimadoNoite);
+        custoEstimadoNoite.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
         totalQuartos = findViewById(R.id.totalQuartos);
+        totalQuartos.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
         totalNoites = findViewById(R.id.totalNoites);
+        totalNoites.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED);
         totalHospedagem = findViewById(R.id.totalHospedagem);
         btnAdiconarDiversos = findViewById(R.id.adicionardiversos);
         totalDiversos = findViewById(R.id.totalDiversos);
@@ -173,6 +184,27 @@ public class CadastrarViagemActivity extends AppCompatActivity {
         ViagemGastoModel gastosDiversos = getGasto(DIVERSOS);
         adapter = new DiversosAdapter(CadastrarViagemActivity.this, gastosDiversos.getGastosItens(), totalDiversos);
         listaDiversos.setAdapter(adapter);
+        updateListViewHeight(listaDiversos);
+        totalDiversos.setText("0.0");
+    }
+
+    public static void updateListViewHeight(ListView myListView) {
+        ListAdapter myListAdapter = myListView.getAdapter();
+        if (myListAdapter == null) {
+            return;
+        }
+        int totalHeight = 0;
+        int adapterCount = myListAdapter.getCount();
+        for (int size = 0; size < adapterCount; size++) {
+            View listItem = myListAdapter.getView(size, null, myListView);
+            listItem.measure(0, 0);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = myListView.getLayoutParams();
+        params.height = (totalHeight
+                + (myListView.getDividerHeight() * (adapterCount)));
+        myListView.setLayoutParams(params);
     }
 
     public ViagemGastoModel getGasto(String alias) {
@@ -184,7 +216,7 @@ public class CadastrarViagemActivity extends AppCompatActivity {
     }
 
     public void openDialog(){
-        DialogDiversos dialogDiversos = new DialogDiversos(getGasto(DIVERSOS), adapter, totalDiversos);
+        DialogDiversos dialogDiversos = new DialogDiversos(getGasto(DIVERSOS), adapter, totalDiversos, listaDiversos);
         dialogDiversos.show(getSupportFragmentManager(),"Adicionar Diverso");
     }
 

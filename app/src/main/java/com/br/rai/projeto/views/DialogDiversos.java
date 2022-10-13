@@ -6,7 +6,10 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,10 +29,12 @@ public class DialogDiversos extends AppCompatDialogFragment {
     private ViagemGastoModel viagemGastoModel;
     private DiversosAdapter adapter;
     private TextView totalDiversos;
+    private ListView listView;
 
-    public DialogDiversos(ViagemGastoModel viagemGastoModel, DiversosAdapter adapter, TextView totalDiversos) {
+    public DialogDiversos(ViagemGastoModel viagemGastoModel, DiversosAdapter adapter, TextView totalDiversos, ListView listView) {
         super();
         this.viagemGastoModel = viagemGastoModel;
+        this.listView = listView;
         this.adapter = adapter;
         this.totalDiversos = totalDiversos;
     }
@@ -62,13 +67,33 @@ public class DialogDiversos extends AppCompatDialogFragment {
                         } else {
                             valorDiversoBanco = Double.parseDouble(valorDiversoDigitado);
                             viagemGastoModel.getGastosItens().add(new ViagemGastoItemModel(nomeDiversoDigitado, Boolean.TRUE, valorDiversoBanco, viagemGastoModel.getId()));
-                            totalDiversos.setText("0.0");
                             adapter.notifyDataSetChanged();
+                            updateListViewHeight(listView);
+                            totalDiversos.setText("0.0");
                         }
                     }
                 });
         nomeEntretenimento = view.findViewById(R.id.nomeDiverso);
         valorEntretenimento = view.findViewById(R.id.valorDiverso);
         return builder.create();
+    }
+
+    public static void updateListViewHeight(ListView myListView) {
+        ListAdapter myListAdapter = myListView.getAdapter();
+        if (myListAdapter == null) {
+            return;
+        }
+        int totalHeight = 0;
+        int adapterCount = myListAdapter.getCount();
+        for (int size = 0; size < adapterCount; size++) {
+            View listItem = myListAdapter.getView(size, null, myListView);
+            listItem.measure(0, 0);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = myListView.getLayoutParams();
+        params.height = (totalHeight
+                + (myListView.getDividerHeight() * (adapterCount)));
+        myListView.setLayoutParams(params);
     }
 }
