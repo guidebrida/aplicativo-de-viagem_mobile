@@ -2,6 +2,8 @@ package com.br.rai.projeto.adapters;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -58,6 +60,7 @@ public class ViagemAdapter extends BaseAdapter {
         TextView custoPorPessoa = view.findViewById(R.id.custoPessoa);
         custoPorPessoa.setText("Custo por pessoa: " + v.getCustoTotal()/v.getTotalViajantes());
 
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,6 +69,14 @@ public class ViagemAdapter extends BaseAdapter {
                 view.getContext().startActivity(intent);
             }
         });
+        view.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+                return false;
+            }
+        });
+
         return view;
     }
 }

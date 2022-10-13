@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:layout_marginRight="55dp"
+            android:layout_marginRight="54dp"
             android:text="Total Estimado de KM:"/>
         <EditText
             android:id="@+id/totalEstimadoKm"
@@ -98,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:layout_marginRight="110dp"
+            android:layout_marginRight="108dp"
             android:text="Total de Veículos:"/>
         <EditText
             android:id="@+id/totalVeiculos"
@@ -116,7 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:layout_marginRight="248dp"
+            android:layout_marginRight="243dp"
             android:text="Total:"/>
         <TextView
             android:id="@+id/totalGasolina"
@@ -154,7 +154,7 @@
             android:layout_marginLeft="5dp"
             android:layout_height="wrap_content"
             android:textSize="28dp"
-            android:layout_marginRight="140dp"
+            android:layout_marginRight="150dp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:text="Tarifa Aerea:"/>
@@ -175,7 +175,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="9dp"
             android:text="Custo estimado por pessoa:"/>
         <EditText
             android:id="@+id/custoEstimadoPessoa"
@@ -269,7 +269,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="9dp"
             android:text="Custo estimado por Refeição:"/>
         <EditText
             android:id="@+id/custoEstimadoRefeicao"
@@ -287,7 +287,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:layout_marginRight="145dp"
+            android:layout_marginRight="140dp"
             android:text="Refeições por dia:"/>
         <EditText
             android:id="@+id/refeicoesDia"
@@ -305,7 +305,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:layout_marginRight="285dp"
+            android:layout_marginRight="279dp"
             android:text="Total:"/>
         <TextView
             android:id="@+id/totalRefeicoes"
@@ -382,7 +382,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:layout_marginRight="175dp"
+            android:layout_marginRight="160dp"
             android:text="Total de noites:"/>
         <EditText
             android:id="@+id/totalNoites"
@@ -400,7 +400,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:layout_marginRight="155dp"
+            android:layout_marginRight="142dp"
             android:text="Total de quartos:"/>
         <EditText
             android:id="@+id/totalQuartos"
@@ -418,7 +418,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:layout_marginRight="290dp"
+            android:layout_marginRight="268dp"
             android:text="Total:"/>
         <TextView
             android:id="@+id/totalHospedagem"
@@ -484,7 +484,8 @@
         <ListView
             android:id="@+id/listDiversos"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:descendantFocusability="blocksDescendants"
+            android:layout_height="100dp">
         </ListView>
     </LinearLayout>
     <LinearLayout

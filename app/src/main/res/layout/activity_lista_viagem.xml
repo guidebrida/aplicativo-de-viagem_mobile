@@ -9,7 +9,8 @@
     <ListView
         android:id="@+id/listviagens"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:longClickable="true"/>
         <Button
             android:id="@+id/addViagem"
             android:layout_width="56dp"

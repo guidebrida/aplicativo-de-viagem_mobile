@@ -6,7 +6,11 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -14,10 +18,12 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.br.rai.projeto.R;
 import com.br.rai.projeto.adapters.DiversosAdapter;
+import com.br.rai.projeto.adapters.ViagemAdapter;
 import com.br.rai.projeto.database.dao.ViagemDao;
 import com.br.rai.projeto.database.models.ViagemGastoItemModel;
 import com.br.rai.projeto.database.models.ViagemGastoModel;
@@ -175,7 +181,7 @@ public class CadastrarViagemActivity extends AppCompatActivity {
 
     public void openDialog(){
         DialogDiversos dialogDiversos = new DialogDiversos(getGasto(DIVERSOS), adapter, totalDiversos);
-        dialogDiversos.show(getSupportFragmentManager(),"Adicionar Entretenimento");
+        dialogDiversos.show(getSupportFragmentManager(),"Adicionar Diverso");
     }
 
     private void setValores() {
@@ -612,6 +618,39 @@ public class CadastrarViagemActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        MenuItem excluir =  menu.add("Excluir");
+        excluir.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+//                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+//                ViagemGastoModel viagem = (ViagemGastoModel) listaDiversos.getItemAtPosition(info.position);
+//                viagemDao.delete(viagem.getId());
+//                arl = viagemDao.listViagem(preferences.getLong(Constants.USER, 0L));
+//                adapter = new ViagemAdapter(ListaViagensActivity.this, arl);
+//                listaPersonalizada.setAdapter(adapter);
+                  Toast.makeText(CadastrarViagemActivity.this, "Excluir Clicado", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        });
+    }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_salvar_viagem, menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        int itemId = item.getItemId();
+//        if(itemId == R.id.menu_salvar){
+//
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
+
     private class AddToViagemClickListener implements View.OnClickListener {
 
         private Switch check;
@@ -634,5 +673,6 @@ public class CadastrarViagemActivity extends AppCompatActivity {
                 }
             }
         }
+
     }
 }

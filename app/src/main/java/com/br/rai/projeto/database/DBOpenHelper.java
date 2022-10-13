@@ -14,7 +14,7 @@ import com.br.rai.projeto.database.models.ViagemModel;
 public class DBOpenHelper extends SQLiteOpenHelper {
 
     private static final String DB = "DB_VIAGEM";
-    private static final int DB_VERSION = 11;
+    private static final int DB_VERSION = 13;
     public DBOpenHelper(Context context) {
         super(context, DB, null, DB_VERSION);
     }
