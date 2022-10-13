@@ -25,6 +25,8 @@ import com.br.rai.projeto.R;
 import com.br.rai.projeto.adapters.DiversosAdapter;
 import com.br.rai.projeto.adapters.ViagemAdapter;
 import com.br.rai.projeto.database.dao.ViagemDao;
+import com.br.rai.projeto.database.dao.ViagemGastoDao;
+import com.br.rai.projeto.database.dao.ViagemGastoItemDao;
 import com.br.rai.projeto.database.models.ViagemGastoItemModel;
 import com.br.rai.projeto.database.models.ViagemGastoModel;
 import com.br.rai.projeto.database.models.ViagemModel;
@@ -87,12 +89,14 @@ public class CadastrarViagemActivity extends AppCompatActivity {
     private Button btnSalvarGastos;
 
     private ViagemDao viagemDao;
+    private ViagemGastoItemDao viagemGastoItemDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_viagem);
         viagemDao = new ViagemDao(CadastrarViagemActivity.this);
+        viagemGastoItemDao = new ViagemGastoItemDao(CadastrarViagemActivity.this);
 
         long viagemId = getIntent().getLongExtra(Constants.VIAGEM_ID, 0L);
 
@@ -624,32 +628,19 @@ public class CadastrarViagemActivity extends AppCompatActivity {
         excluir.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
-//                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
-//                ViagemGastoModel viagem = (ViagemGastoModel) listaDiversos.getItemAtPosition(info.position);
-//                viagemDao.delete(viagem.getId());
-//                arl = viagemDao.listViagem(preferences.getLong(Constants.USER, 0L));
-//                adapter = new ViagemAdapter(ListaViagensActivity.this, arl);
-//                listaPersonalizada.setAdapter(adapter);
-                  Toast.makeText(CadastrarViagemActivity.this, "Excluir Clicado", Toast.LENGTH_LONG).show();
+                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+                ViagemGastoItemModel gasto = (ViagemGastoItemModel) listaDiversos.getItemAtPosition(info.position);
+                if (gasto.getId() != null) {
+                    viagemGastoItemDao.delete(gasto);
+                }
+                getGasto(DIVERSOS).getGastosItens().remove(info.position);
+                totalDiversos.setText("0.0");
+                adapter.notifyDataSetChanged();
+                Toast.makeText(CadastrarViagemActivity.this, "Gasto excluido", Toast.LENGTH_LONG).show();
                 return false;
             }
         });
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
-//        getMenuInflater().inflate(R.menu.menu_salvar_viagem, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        int itemId = item.getItemId();
-//        if(itemId == R.id.menu_salvar){
-//
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
 
     private class AddToViagemClickListener implements View.OnClickListener {
 

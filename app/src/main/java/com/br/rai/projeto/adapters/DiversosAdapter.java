@@ -19,6 +19,7 @@ public class DiversosAdapter extends BaseAdapter {
     private TextView totalDiversos;
 
     public DiversosAdapter(final Activity act, final List<ViagemGastoItemModel> arlLista, TextView totalDiversos) {
+        super();
         this.act = act;
         this.arlLista = arlLista;
         this.totalDiversos = totalDiversos;

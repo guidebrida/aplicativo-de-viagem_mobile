@@ -62,7 +62,7 @@ public class DialogDiversos extends AppCompatDialogFragment {
                         } else {
                             valorDiversoBanco = Double.parseDouble(valorDiversoDigitado);
                             viagemGastoModel.getGastosItens().add(new ViagemGastoItemModel(nomeDiversoDigitado, Boolean.TRUE, valorDiversoBanco, viagemGastoModel.getId()));
-                            totalDiversos.setText("");
+                            totalDiversos.setText("0.0");
                             adapter.notifyDataSetChanged();
                         }
                     }

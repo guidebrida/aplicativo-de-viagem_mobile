@@ -75,4 +75,13 @@ public class ViagemGastoItemDao extends AbstractDao {
         }
         return list;
     }
+
+    public void delete(ViagemGastoItemModel viagemGastoItemModel) {
+        try {
+            Open();
+            db.delete(ViagemGastoItemModel.TABLE, String.format("%s = %s;", ViagemGastoItemModel.COLUNA_ID, viagemGastoItemModel.getId()), null);
+        } finally {
+            Close();
+        }
+    }
 }
