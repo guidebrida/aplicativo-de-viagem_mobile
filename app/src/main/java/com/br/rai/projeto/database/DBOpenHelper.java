@@ -13,8 +13,8 @@ import com.br.rai.projeto.database.models.ViagemModel;
 
 public class DBOpenHelper extends SQLiteOpenHelper {
 
-    private static final String DB = "DB_VIAGEM";
-    private static final int DB_VERSION = 13;
+    private static final String DB = "DB";
+    private static final int DB_VERSION = 2;
     public DBOpenHelper(Context context) {
         super(context, DB, null, DB_VERSION);
     }
@@ -22,6 +22,9 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(UsuarioModel.CREATE_TABLE);
+        sqLiteDatabase.execSQL(ViagemModel.CREATE_TABLE);
+        sqLiteDatabase.execSQL(ViagemGastoModel.CREATE_TABLE);;
+        sqLiteDatabase.execSQL(ViagemGastoItemModel.CREATE_TABLE);
     }
 
     @Override

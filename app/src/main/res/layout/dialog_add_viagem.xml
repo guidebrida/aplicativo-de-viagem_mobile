@@ -4,32 +4,48 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
-    <EditText
-        android:id="@+id/descricao"
-        android:gravity="center"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="Descricao da viagem" />
-    <EditText
-        android:id="@+id/nDias"
-        android:gravity="center"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/descricao"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:background="@color/white"
+            android:hint="Descricao da viagem" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:layout_marginTop="40dp"
-        android:hint="Número de dias da Viagem" />
-    <EditText
-        android:id="@+id/qntdPessoas"
-        android:gravity="center"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/nDias"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:inputType="number"
+            android:layout_marginTop="50dp"
+            android:hint="Número de dias da Viagem" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:inputType="number"
-        android:layout_marginTop="80dp"
-        android:hint="Número de viajantes" />
-
-
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/qntdPessoas"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:inputType="number"
+            android:background="@color/white"
+            android:layout_marginTop="100dp"
+            android:hint="Número de viajantes" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </RelativeLayout>

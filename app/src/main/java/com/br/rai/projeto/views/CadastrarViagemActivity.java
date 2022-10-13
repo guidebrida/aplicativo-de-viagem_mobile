@@ -155,9 +155,6 @@ public class CadastrarViagemActivity extends AppCompatActivity {
         });
 
         btnSalvarGastos.setOnClickListener(new ClickListenerSalvarGastos());
-        ViagemGastoModel gastosDiversos = getGasto(DIVERSOS);
-        adapter = new DiversosAdapter(CadastrarViagemActivity.this, gastosDiversos != null ? gastosDiversos.getGastosItens() : new ArrayList<>(), totalDiversos);
-        listaDiversos.setAdapter(adapter);
 
         addHospedagem.setOnClickListener(new AddToViagemClickListener(addHospedagem, getGasto(HOSPEDAGEM), custoEstimadoNoite, totalNoites, totalQuartos));
         addRefeicao.setOnClickListener(new AddToViagemClickListener(addRefeicao, getGasto(REFEICOES), custoEstimadoRefeicao, refeicoesDia));
@@ -169,6 +166,9 @@ public class CadastrarViagemActivity extends AppCompatActivity {
         } else {
             this.setValores();
         }
+        ViagemGastoModel gastosDiversos = getGasto(DIVERSOS);
+        adapter = new DiversosAdapter(CadastrarViagemActivity.this, gastosDiversos.getGastosItens(), totalDiversos);
+        listaDiversos.setAdapter(adapter);
     }
 
     public ViagemGastoModel getGasto(String alias) {
