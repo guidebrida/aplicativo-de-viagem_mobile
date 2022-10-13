@@ -509,6 +509,7 @@ public class CadastrarViagemActivity extends AppCompatActivity {
         public void onClick(View view) {
             viagemModel.setCustoTotal(0D);
             for (ViagemGastoModel gasto : viagemModel.getGastos()) {
+                gasto.setTotal(0D);
                 switch (gasto.getDescricao()) {
                     case GASOLNA:
                         setValoresGasolina(gasto);
@@ -588,6 +589,13 @@ public class CadastrarViagemActivity extends AppCompatActivity {
                     case HOSPEDAGEM_TOTAL_NOITES:
                         if (!totalNoites.getText().toString().isEmpty()) {
                             gastosIten.setValor(Double.parseDouble(totalNoites.getText().toString()));
+                        } else {
+                            gastosIten.setValor(0D);
+                        }
+                        break;
+                    case HOSPEDAGEM_QUARTOS:
+                        if (!totalQuartos.getText().toString().isEmpty()) {
+                            gastosIten.setValor(Double.parseDouble(totalQuartos.getText().toString()));
                         } else {
                             gastosIten.setValor(0D);
                         }
@@ -689,7 +697,10 @@ public class CadastrarViagemActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             if (check.isChecked()) {
-                EditText first = Arrays.stream(editTexts).filter(x -> x.getText().toString().isEmpty() || x.getText().toString().equals("0.0")).findFirst().orElse(null);
+                EditText first = null;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                    first = Arrays.stream(editTexts).filter(x -> x.getText().toString().isEmpty() || x.getText().toString().equals("0.0")).findFirst().orElse(null);
+                }
                 if (first != null) {
                     Toast.makeText(CadastrarViagemActivity.this, "Preencha todos os campos para adicionar à viagem!", Toast.LENGTH_LONG).show();
                     check.setChecked(false);
